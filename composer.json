@@ -1,0 +1,76 @@
+{
+    "name": "aotd/platform-specific-installer-demo",
+    "description": "Testing repo",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Alexey Ashurok",
+            "email": "me@aotd.ru",
+            "homepage": "https://aotd.ru"
+
+        }
+    ],
+    "require": {
+        "aotd/platform-specific-installer": "dev-master"
+    },
+    "extra": {
+        "class": "Aotd\\Composer\\PlatformSpecificInstaller\\InstallerPlugin",
+        "platform-specific-require": {
+            "travis-testing/out": [
+                { "travis-testing/mac":      "*", "os": "macosx", "architecture": "x64" },
+                { "travis-testing/linux":    "*", "os": "linux" },
+                { "travis-testing/32bits":   "*", "architecture": "i386" }
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "type":"package",
+            "package":{
+                "name":"travis-testing/mac",
+                "bin": ["dummy.sh"],
+                "version":"1.0",
+                "dist":{
+                    "url":"https://github.com/aotd1/platform-specific-installer-demo/archive/nix.zip",
+                    "type":"zip"
+                }
+            }
+        },
+        {
+            "type":"package",
+            "package":{
+                "name":"travis-testing/win",
+                "bin": ["dummy.bat"],
+                "version":"1.0",
+                "dist":{
+                    "url":"https://github.com/aotd1/platform-specific-installer-demo/archive/win.zip",
+                    "type":"zip"
+                }
+            }
+        },
+        {
+            "type":"package",
+            "package":{
+                "name":"travis-testing/linux",
+                "bin": ["dummy.sh"],
+                "version":"1.0",
+                "dist":{
+                    "url":"https://github.com/aotd1/platform-specific-installer-demo/archive/nix.zip",
+                    "type":"zip"
+                }
+            }
+        },
+        {
+            "type":"package",
+            "package":{
+                "name":"travis-testing/32bits",
+                "bin": ["dummy.sh"],
+                "version":"1.0",
+                "dist":{
+                    "url":"https://github.com/aotd1/platform-specific-installer-demo/archive/nix.zip",
+                    "type":"zip"
+                }
+            }
+        }
+    ]
+}
