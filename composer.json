@@ -14,14 +14,21 @@
         "aotd/platform-specific-installer": "dev-master"
     },
     "extra": {
-        "class": "Aotd\\Composer\\PlatformSpecificInstaller\\InstallerPlugin",
         "platform-specific-require": {
             "travis-testing/out": [
-                { "travis-testing/mac":      "*", "os": "macosx", "architecture": "x64" },
-                { "travis-testing/linux":    "*", "os": "linux" },
-                { "travis-testing/32bits":   "*", "architecture": "i386" }
+                { "travis-testing/mac":      "1.0", "os": "macosx", "architecture": "x64" },
+                { "travis-testing/linux":    "1.0", "os": "linux" },
+                { "travis-testing/32bits":   "1.0", "architecture": "i386" }
             ]
         }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "Aotd\\Composer\\PlatformSpecificInstaller\\InstallerPlugin::install"
+        ],
+        "post-update-cmd": [
+            "Aotd\\Composer\\PlatformSpecificInstaller\\InstallerPlugin::update"
+        ]
     },
     "repositories": [
         {
